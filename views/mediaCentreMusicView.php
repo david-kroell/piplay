@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/materialize.min.css">
     <link rel="stylesheet" href="/css/specific.css">
     <!-- TODO: add vol up/down and next/prev buttons-->
+    <!-- TODO: shuffle button-->
 </head>
     <body>
     <header>
@@ -60,7 +61,7 @@
                 <li><a href="/MediaCentre/video"><i class="material-icons left">videocam</i>Video</a></li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
-                        <li><a class="collapsible-header waves-effect waves-orange">
+                        <li><a class="collapsible-header waves-effect waves-light">
                                 <span class="bold">Settings</span>
                                 <i class="material-icons left">settings</i>
                             </a>
@@ -103,7 +104,7 @@
             //$media[0]: paths of directories
             //$media[1]: paths of files
             foreach ($media[1] as $name => $path):?>
-                <div class="row container waves-effect waves-orange" onclick="play_song(this.childNodes[3].innerHTML)">
+                <div class="row container waves-effect waves-block" onclick="play_song(this.childNodes[3].innerHTML)">
                     <div class="col s2"><?php echo $counter; $counter++?></div>
                     <div class="col s10"><?php echo $name?></div>
                 </div>

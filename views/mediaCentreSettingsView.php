@@ -6,10 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
-    <title>PiPlay Music</title>
+    <title>PiPlay Media Settings</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/specific.css">
+    <link rel="stylesheet" href="/css/specific_settings.css">
 </head>
     <body>
         <header>
@@ -75,17 +75,20 @@
                 </ul>
             </nav>
 
-            <!--<nav class="container color grey lighten-2">
-                <div class="nav-wrapper">
-                    <form>
+            <div class="container">
+                    <form action="/MediaCentre/control/control_paths.php" method="post">
+
                         <div class="input-field">
-                            <input id="search" type="search" required>1
-                            <label for="search"><i class="material-icons">search</i></label>
-                            <i class="material-icons">close</i>
+                            <input id="icon_telephone" type="text" class="validate" name="addpath">
+                            <label for="icon_telephone">Path to media</label>
                         </div>
+
+                        <input type="checkbox" name="recursive" id="recursive"/>
+                        <label for="recursive">Include subdirectories</label>
+
+                        <input class="btn grey right waves-effect waves-light" type="submit" value="Add">
                     </form>
-                </div>
-            </nav>-->
+            </div>
         </header>
 
         <main>

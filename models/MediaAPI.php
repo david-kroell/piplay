@@ -7,13 +7,13 @@
  */
 
 namespace PiCast;
-
+// TODO: rewrite this for database use
 
 class MediaAPI
 {
-    public $JSONfile;
+    private $JSONfile;
 
-    function __construct($JSONfile = "/media/media.json")
+    public function __construct($JSONfile = __DIR__."/../media/media.json")
     {
         $this->JSONfile = $JSONfile;
     }
@@ -22,25 +22,24 @@ class MediaAPI
      * @param array $dirNames
      * @return void
      */
-    function SaveMedia(array $dirNames){
+    private function SaveMedia(array $dirNames){
         if($dirNames == []){
             file_put_contents($this->JSONfile, json_encode(null));
             return;
         }
         $media = [];
-        if(!is_array($dirNames))
-            $dirNames = array($dirNames);
+
         $media[0] = $dirNames;
         $media_names = [];
-            foreach ($dirNames as $item){
-                $media_paths = glob($item.DIRECTORY_SEPARATOR."*.*");
-                foreach ($media_paths as $path)
-                    $media_names[] = pathinfo($path)['filename'];
-                foreach ($media_paths as $i => $name){
-                    $media[1][$media_names[$i]] =  $name;
-                }
-                unset($media_paths, $media_names);
+        foreach ($dirNames as $item){
+            $media_paths = glob($item.DIRECTORY_SEPARATOR."*.*");
+            foreach ($media_paths as $path)
+                $media_names[] = pathinfo($path)['filename'];
+            foreach ($media_paths as $i => $name){
+                $media[1][$media_names[$i]] =  $name;
             }
+            unset($media_paths, $media_names);
+        }
         file_put_contents($this->JSONfile, json_encode($media));
         return;
     }
@@ -48,11 +47,11 @@ class MediaAPI
     /*
     * @return array
     */
-    function GetSavedMedia(){
-        if(file_exists($this->JSONfile)){
+    public function GetSavedMedia(){
+        if(file_exists($this->JSONfile)) {
             $media = json_decode(file_get_contents($this->JSONfile), true);
-            if(is_null($media))
-                return [[],[]];
+            if (is_null($media))
+                return [[], []];
             else
                 return $media;
         }
@@ -64,7 +63,7 @@ class MediaAPI
      * @return void
      */
 
-    function AddMediaPath(array $dirPath, bool $recursive){
+    public function AddMediaPath(string $dirPath, bool $recursive){
         $dirPaths = [];
         if(file_exists($this->JSONfile))
             $dirPaths = json_decode(file_get_contents($this->JSONfile), true)[0]; //[0] is for the paths, [1] for the files
@@ -81,7 +80,7 @@ class MediaAPI
         return;
     }
 
-    function getDirsRecursive($dir, &$results = array()){
+    private function getDirsRecursive($dir, &$results = array()){
         $files = scandir($dir);
 
         foreach($files as $key => $value){
@@ -101,7 +100,7 @@ class MediaAPI
      * @param string $dirPath
      * @return void
      */
-    function RemoveMediaPath(string $dirPath){
+    public function RemoveMediaPath(string $dirPath){
         if(file_exists($this->JSONfile)) {
             $media = json_decode(file_get_contents($this->JSONfile), true)[0]; //[0] is for the paths, [1] for the files
             if (is_null($media)) {
@@ -112,8 +111,10 @@ class MediaAPI
         }
     }
 
-    function UpdateMediaFromSameFolders(){
+    public function UpdateMediaFromSameFolders(){
         $directoryPaths = $this->GetSavedMedia()[0];
+        if($directoryPaths == null)
+            $directoryPaths = [];
         if(file_exists($this->JSONfile))
             unlink($this->JSONfile);
         $this->SaveMedia($directoryPaths);

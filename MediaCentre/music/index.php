@@ -3,7 +3,7 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "GET" && $_SESSION["user"] == "asdf")
 {
     include "../../models/MediaAPI.php";
-    $MediaAPI = new \PiCast\MediaAPI("../../media/media.json");
+    $MediaAPI = new \PiCast\MediaAPI();
     if(isset($_GET["refresh"])){
         $MediaAPI->UpdateMediaFromSameFolders();
         header("Location: /MediaCentre/music");
