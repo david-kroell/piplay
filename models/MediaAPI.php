@@ -15,7 +15,7 @@ class MediaAPI
 
     public function __construct($JSONfile = __DIR__."/../media/media.json")
     {
-        $this->JSONfile = $JSONfile;
+        $this->JSONfile = realpath($JSONfile);
     }
 
     /*

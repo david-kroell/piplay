@@ -57,6 +57,7 @@
                         <a href="#!email"><span class="white-text email"><?//php echo $_SESSION["userType"] ?></span></a>
                     </div>
                 </li>
+                <li><a href="/controllers/login_logout.php?logout=true"><i class="material-icons left">exit_to_app</i>Logout</a></li>
                 <li class="active"><a href="/MediaCentre/music"><i class="material-icons left">music_note</i>Music</a></li>
                 <li><a href="/MediaCentre/video"><i class="material-icons left">videocam</i>Video</a></li>
                 <li class="no-padding">
@@ -77,13 +78,13 @@
             </ul>
         </nav>
 
-        <nav class="container color grey lighten-2">
+        <nav class="container color white">
             <div class="nav-wrapper">
                 <form>
-                    <div class="input-field">
-                        <input id="search" type="search" required>1
+                    <div class="input-field" id="top-search">
+                        <input id="search" type="search" required onkeyup="filter_table(this.value)">
                         <label for="search"><i class="material-icons">search</i></label>
-                        <i class="material-icons">close</i>
+                        <i class="material-icons" onclick="document.getElementById('search').value = ''">close</i>
                     </div>
                 </form>
             </div>
@@ -109,6 +110,15 @@
                     <div class="col s10"><?php echo $name?></div>
                 </div>
             <?php endforeach;?>
+        </div>
+        <!-- Control bar-->
+        <div class="stick-to-bottom" id="controlBar">
+            <div class="horizontal">
+                <a class="btn-floating btn-large btn-flat grey lighten-2"><i class="material-icons black-text">skip_previous</i></a>
+                <a class="btn-floating btn-large btn-flat grey lighten-2"><i class="material-icons black-text">stop</i></a>
+                <a class="btn-floating btn-large btn-flat grey lighten-2"><i class="material-icons black-text">skip_next</i></a>
+                <a class="btn-floating btn-large btn-flat grey lighten-2"><i class="material-icons black-text">shuffle</i></a>
+            </div>
         </div>
     </main>
 

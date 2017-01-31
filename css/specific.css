@@ -11,6 +11,22 @@
     bottom: 0;
 }
 
+#controlBar{
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#controlBar > *{
+    margin: 0 auto;
+    width: 292.5px;
+    opacity: .5;
+    transition: all .3s ease;
+}
+
+#controlBar > *:hover{
+    opacity: 1;
+}
+
 .stick-to-top{
     z-index: 1000;
     position: fixed;
@@ -107,4 +123,8 @@ main {
 /* icon prefix focus color */
 .input-field .prefix.active {
     color: #ff9800;
+}
+
+.input-field#top-search label[for=search] i, .input-field#top-search #search{
+    color: #444 !important;
 }

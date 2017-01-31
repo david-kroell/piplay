@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET" && $_SESSION["user"] == "asdf"){
         //now it's playing the song twice (why?!?)
         //kill one, but careful.
         //wait until our script created a child process.
-        sleep(2);
+        sleep(0.8);
         exec('kill '.$pid);
 
         echo $play;
