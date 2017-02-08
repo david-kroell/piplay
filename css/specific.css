@@ -18,7 +18,7 @@
 
 #controlBar > *{
     margin: 0 auto;
-    width: 292.5px;
+    width: 236px;
     opacity: .5;
     transition: all .3s ease;
 }
@@ -38,13 +38,12 @@
     width: 66%
 }
 
-#currentlyPlaying{
-    font-size: 1.45em;
-    margin: 8px 0;
+.currPlayingToast{
+    max-width: 350px;
 }
 
 .fake-table{
-    margin: 50px 0;
+    margin: 2.5em 0;
 }
 
 .fake-table >  div{
@@ -72,13 +71,10 @@ main {
     flex: 1 0 auto;
 }
 
-.remove{
-    transition: .2s ease-in-out;
+.top-space{
+    margin-top: 2.5em;
 }
 
-.remove:hover{
-    color: #ff9800;
-}
 
 /* #ff9800 = material orange /*
 /* label focus color */

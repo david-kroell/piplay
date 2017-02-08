@@ -5,13 +5,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_SESSION["user"] == "asdf"){
         include "../../models/MediaAPI.php";
 
         $path = $_POST["addpath"];
-        //make absolute path if it is a relative one
-        if(($path[0] == '.' && $path[1] == DIRECTORY_SEPARATOR)) {
-            $path = ltrim($path, '.');
-        } elseif ($path[0] != DIRECTORY_SEPARATOR)
-        {
-            $path = __DIR__.DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR."..".DIRECTORY_SEPARATOR.$path;
-        }
         $path = realpath($path);
 
         if(!$path) {

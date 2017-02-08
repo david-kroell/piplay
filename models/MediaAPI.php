@@ -22,6 +22,9 @@ class MediaAPI
      * @param array $dirNames
      * @return void
      */
+    /**
+     * @param array $dirNames
+     */
     private function SaveMedia(array $dirNames){
         if($dirNames == []){
             file_put_contents($this->JSONfile, json_encode(null));
@@ -55,6 +58,7 @@ class MediaAPI
             else
                 return $media;
         }
+        return [[], []];
     }
 
     /*

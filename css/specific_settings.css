@@ -1,62 +1,6 @@
-.stick-to-bottom{
-    z-index: 1000;
-    position: fixed;
-    bottom: 0;
+.line30px{
+    line-height: 30px;
 }
-
-.stick-to-top{
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-}
-
-.slider-wrapper{
-    height: 51px;
-    width: 66%
-}
-
-#currentlyPlaying{
-    font-size: 1.45em;
-    margin: 8px 0;
-}
-
-.fake-table{
-    margin: 50px 0;
-}
-
-.fake-table >  div{
-    margin-bottom: 0;
-    border-bottom: 1px solid #d0d0d0;
-    display: table;
-    padding: 15px 0;
-}
-
-.fake-table .fake-table-head{
-    border-bottom: 2px solid #d0d0d0 !important ;
-    font-weight: bold;
-}
-
-nav ul .dropdown-content li a{
-    color: rgba(0, 0, 0, 0.87);
-}
-
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
-main {
-    flex: 1 0 auto;
-}
-
-.remove{
-    transition: .2s ease-in-out;
-}
-
-.remove:hover{
-    color: #ff9800;
-}
-
 
 /* label focus color */
 .input-field input[type=text]:focus + label {

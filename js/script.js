@@ -1,5 +1,5 @@
 function filter_table(input) {
-    var filter, table, rows, colums, i, j;
+    var filter, table, rows, colums, i;
     filter = input.toUpperCase();
     table = document.getElementById("myMusic");
     rows = table.getElementsByTagName("div");
@@ -22,14 +22,14 @@ function play_song(track_name) {
     track_name = encodeURI(track_name);
 
     var xmlhttp = new XMLHttpRequest();
+
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            //document.getElementById("currentlyPlaying").innerHTML = this.responseText;
-            Materialize.toast(this.responseText, 4000) // 4000 is the duration of the toast
-
+            //show response text in toast
+            Materialize.toast(this.responseText, 4000, 'currPlayingToast');
         }
     };
-
+    //send playing request
     xmlhttp.open("GET", "/MediaCentre/control/control_omx.php?play=" + track_name, true);
     xmlhttp.send();
 }

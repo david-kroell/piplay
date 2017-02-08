@@ -9,6 +9,7 @@
     <title>PiPlay Media Settings</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/specific.css">
     <link rel="stylesheet" href="/css/specific_settings.css">
 </head>
     <body>
@@ -42,7 +43,7 @@
                         </li>
                     </ul>
                 </div>
-
+                <!--Mobile Nav-->
                 <ul id="nav-mobile" class="side-nav">
                     <li>
                         <div class="userView">
@@ -55,13 +56,14 @@
                             <a href="#!email"><span class="white-text email"><?//php echo $_SESSION["userType"] ?></span></a>
                         </div>
                     </li>
-                    <li class="active"><a href="/MediaCentre/music"><i class="material-icons left">music_note</i>Music</a></li>
+                    <li><a href="/controllers/login_logout.php?logout=true"><i class="material-icons left">exit_to_app</i>Logout</a></li>
+                    <li><a href="/MediaCentre/music"><i class="material-icons left">music_note</i>Music</a></li>
                     <li><a href="/MediaCentre/video"><i class="material-icons left">videocam</i>Video</a></li>
                     <li class="no-padding">
                         <ul class="collapsible collapsible-accordion">
-                            <li><a class="collapsible-header waves-effect waves-orange">
-                                    <span class="bold">Settings</span>
-                                    <i class="material-icons left">settings</i>
+                            <li><a class="collapsible-header waves-effect waves-block active">
+                                    <span>Settings</span>
+                                    <i class="material-icons left bold">settings</i>
                                 </a>
                                 <div class="collapsible-body" style="display: block;">
                                     <ul>
@@ -74,19 +76,21 @@
                     </li>
                 </ul>
             </nav>
-
-            <div class="container">
+            <!--Add path-->
+            <div class="container top-space">
                     <form action="/MediaCentre/control/control_paths.php" method="post">
 
                         <div class="input-field">
                             <input id="icon_telephone" type="text" class="validate" name="addpath">
-                            <label for="icon_telephone">Path to media</label>
+                            <label for="icon_telephone">Absolute Path to media</label>
                         </div>
 
                         <input type="checkbox" name="recursive" id="recursive"/>
                         <label for="recursive">Include subdirectories</label>
 
-                        <input class="btn grey right waves-effect waves-light" type="submit" value="Add">
+                        <i class="btn waves-effect waves-light waves-input-wrapper grey right" style="padding: 0;">
+                            <input style="width: inherit; height: inherit; padding: 0 30px;" class="waves-button-input" type="submit" value="Add">
+                        </i>
                     </form>
             </div>
         </header>
@@ -94,17 +98,26 @@
         <main>
             <div class="fake-table">
                 <div class="row container fake-table-head">
-                    <div class="col s1">Remove</div>
+                    <div class="col s1"></div>
                     <div class="col s11">Path</div>
                 </div>
 
                 <?php
                 foreach ($media_paths as $i => $name):?>
                     <div class="row container">
-                        <a href="/MediaCentre/control/control_paths.php?removepath=<?php echo $i?>"><i class="col s1 material-icons center remove small">close</i></a>
-                        <div class="col s11"><?php echo $name?></div>
+                        <a href="/MediaCentre/control/control_paths.php?removepath=<?php echo $i?>"><i class="col s1 material-icons center remove small grey-text">delete</i></a>
+                        <div class="col s11 line30px"><?php echo $name?></div>
                     </div>
                 <?php endforeach;?>
+            </div>
+            <!-- Control bar-->
+            <div class="stick-to-bottom" id="controlBar">
+                <div class="horizontal">
+                    <a class="btn-floating btn-large btn-flat grey lighten-2"><i class="material-icons black-text">skip_previous</i></a>
+                    <a class="btn-floating btn-large btn-flat grey lighten-2"><i class="material-icons black-text">stop</i></a>
+                    <a class="btn-floating btn-large btn-flat grey lighten-2"><i class="material-icons black-text">skip_next</i></a>
+                    <a class="btn-floating btn-large btn-flat grey lighten-2"><i class="material-icons black-text">shuffle</i></a>
+                </div>
             </div>
         </main>
 
