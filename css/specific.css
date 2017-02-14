@@ -76,13 +76,13 @@ main {
 }
 
 
-/* #ff9800 = material orange /*
+/* #ffc107 = material amber /*
 /* label focus color */
 .input-field input[type=text]:focus + label {
-    color: #ff9800;
+    color: #ffc107;
 }
 .input-field input[type=password]:focus + label {
-    color: #ff9800;
+    color: #ffc107;
 }
 /* label underline color */
 .input-field input[type=text] {
@@ -109,16 +109,16 @@ main {
 }
 /* valid color */
 .input-field input[type=text].valid {
-    border-bottom: 1px solid #ff9800 ;
-    box-shadow: 0 1px 0 0 #ff9800 ;
+    border-bottom: 1px solid #ffc107 ;
+    box-shadow: 0 1px 0 0 #ffc107 ;
 }
 .input-field input[type=password].valid {
-    border-bottom: 1px solid #ff9800 ;
-    box-shadow: 0 1px 0 0 #ff9800 ;
+    border-bottom: 1px solid #ffc107 ;
+    box-shadow: 0 1px 0 0 #ffc107 ;
 }
 /* icon prefix focus color */
 .input-field .prefix.active {
-    color: #ff9800;
+    color: #ffc107;
 }
 
 .input-field#top-search label[for=search] i, .input-field#top-search #search{

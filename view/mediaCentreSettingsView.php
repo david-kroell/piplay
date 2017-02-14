@@ -15,13 +15,13 @@
     <body>
         <header>
             <ul id="dropdown_user" class="dropdown-content">
-                <li><a href="/controllers/login_logout.php?logout=true"><i class="material-icons left">exit_to_app</i>Logout</a></li>
+                <li><a href="/controller/login_logout.php?logout=true"><i class="material-icons left">exit_to_app</i>Logout</a></li>
             </ul>
             <ul id="dropdown_settings" class="dropdown-content">
                 <li><a href="/MediaCentre/settings/users"><i class="material-icons left">group</i>Users</a></li>
                 <li><a href="/MediaCentre/settings/media"><i class="material-icons left">music_video</i>Media</a></li>
             </ul>
-            <nav class="light-blue lighten-1" role="navigation">
+            <nav class="indigo" role="navigation">
                 <div class="nav-wrapper container">
                     <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons black-text">menu</i></a>
 
@@ -56,7 +56,7 @@
                             <a href="#!email"><span class="white-text email"><?//php echo $_SESSION["userType"] ?></span></a>
                         </div>
                     </li>
-                    <li><a href="/controllers/login_logout.php?logout=true"><i class="material-icons left">exit_to_app</i>Logout</a></li>
+                    <li><a href="/controller/login_logout.php?logout=true"><i class="material-icons left">exit_to_app</i>Logout</a></li>
                     <li><a href="/MediaCentre/music"><i class="material-icons left">music_note</i>Music</a></li>
                     <li><a href="/MediaCentre/video"><i class="material-icons left">videocam</i>Video</a></li>
                     <li class="no-padding">
@@ -88,8 +88,8 @@
                         <input type="checkbox" name="recursive" id="recursive"/>
                         <label for="recursive">Include subdirectories</label>
 
-                        <i class="btn waves-effect waves-light waves-input-wrapper grey right" style="padding: 0;">
-                            <input style="width: inherit; height: inherit; padding: 0 30px;" class="waves-button-input" type="submit" value="Add">
+                        <i class="btn waves-effect waves-light waves-input-wrapper amber accent-3 right" style="padding: 0;">
+                            <input style="width: inherit; height: inherit; padding: 0 30px;" class="waves-button-input black-text" type="submit" value="Add">
                         </i>
                     </form>
             </div>
@@ -121,29 +121,7 @@
             </div>
         </main>
 
-        <footer class="page-footer light-blue darken-1">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Pi Play,</h5>
-                        <p class="grey-text text-lighten-3">a simple and easy to install website to play songs via your RapsberryPI.</p>
-                        <p class="grey-text text-lighten-3">And any other device which runs Linux and has OMXplayer installed.</p>
-                    </div>
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Links</h5>
-                        <ul class="white-text">
-                            <li>View this project on <a class="grey-text text-lighten-1" href="https://github.com/david-kroell/piplay">GitHub</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    Made with &#x2661;, PHP and JavaScript
-                    <span class="right">Designed with <a class="grey-text text-lighten-1" href="http://materializecss.com">Materialize</a></span>
-                </div>
-            </div>
-        </footer>
+        <?php require_once "components/footer.php" ?>
 
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script src="/js/materialize.js"></script>

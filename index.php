@@ -15,7 +15,7 @@
         <div class="login-form-wrapper">
             <div class="card">
                 <div class="card-content">
-                    <form class="col s12" action="controllers/login_logout.php" method="post">
+                    <form class="col s12" action="controller/login_logout.php" method="post">
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">account_circle</i>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                <i class="col s12 btn waves-effect waves-light waves-input-wrapper orange">
+                                <i class="col s12 btn waves-effect waves-light waves-input-wrapper amber">
                                     <input style="width: inherit; height: inherit" class="waves-button-input" type="submit" value="Login">
                                 </i>
                             </div>

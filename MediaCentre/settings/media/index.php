@@ -1,7 +1,7 @@
 <?php
 session_start();
 if($_SERVER["REQUEST_METHOD"] == "GET" && $_SESSION["user"] == "asdf"){
-    include "../../../models/MediaAPI.php";
+    include "../../../model/MediaAPI.php";
     $MediaAPI = new \PiCast\MediaAPI();
     $media = $MediaAPI->GetSavedMedia();
     if($media == null){
@@ -9,5 +9,5 @@ if($_SERVER["REQUEST_METHOD"] == "GET" && $_SESSION["user"] == "asdf"){
     } else{
         $media_paths = $media[0];
     }
-    require_once "../../../views/mediaCentreSettingsView.php";
+    require_once "../../../view/mediaCentreSettingsView.php";
 }

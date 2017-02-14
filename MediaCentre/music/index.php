@@ -2,7 +2,7 @@
 session_start();
 if($_SERVER["REQUEST_METHOD"] == "GET" && $_SESSION["user"] == "asdf")
 {
-    include "../../models/MediaAPI.php";
+    include "../../model/MediaAPI.php";
     $MediaAPI = new \PiCast\MediaAPI();
     if(isset($_GET["refresh"])){
         $MediaAPI->UpdateMediaFromSameFolders();
@@ -14,4 +14,4 @@ if($_SERVER["REQUEST_METHOD"] == "GET" && $_SESSION["user"] == "asdf")
         $media = [[], []];
 }
 
-require_once "../../views/mediaCentreMusicView.php";
+require_once "../../view/mediaCentreMusicView.php";

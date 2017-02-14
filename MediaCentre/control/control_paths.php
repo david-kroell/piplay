@@ -2,7 +2,7 @@
 session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST" && $_SESSION["user"] == "asdf"){
     if(isset($_POST["addpath"])){
-        include "../../models/MediaAPI.php";
+        include "../../model/MediaAPI.php";
 
         $path = $_POST["addpath"];
         $path = realpath($path);
@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_SESSION["user"] == "asdf"){
     }
 }elseif ($_SERVER["REQUEST_METHOD"] == "GET"){
     if(isset($_GET["removepath"])){
-        include "../../models/MediaAPI.php";
+        include "../../model/MediaAPI.php";
         $path = $_GET["removepath"];
         $MediaAPI = new \PiCast\MediaAPI("../../media/media.json");
         $MediaAPI->RemoveMediaPath($path);

@@ -32,8 +32,8 @@
     border-bottom: 1px solid #000 ;
     box-shadow: 0 1px 0 0 #000 ;
 }
-
+/* #ffc400 = material amber accent-3 */
 [type="checkbox"]:checked+label:before{
-    border-bottom: 2px solid #039be5;
-    border-right: 2px solid #039be5;
+    border-bottom: 2px solid #ffc400;
+    border-right: 2px solid #ffc400;
 }

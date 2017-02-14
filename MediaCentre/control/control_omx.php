@@ -3,7 +3,7 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "GET" && $_SESSION["user"] == "asdf"){
     if(isset($_GET["play"])){
         $play = $_GET["play"];
-        include "../../models/MediaAPI.php";
+        include "../../model/MediaAPI.php";
         $MediaAPI = new \PiCast\MediaAPI("../../media/media.json");
         $media = $MediaAPI->GetSavedMedia();
         $path_to_media =  $media[1][$play];
